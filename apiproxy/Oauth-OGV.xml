@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<APIProxy revision="7" name="Oauth-OGV">
+    <Basepaths>/oauth-ogv</Basepaths>
+    <ConfigurationVersion majorVersion="4" minorVersion="0"/>
+    <CreatedAt>1764326837776</CreatedAt>
+    <CreatedBy>pavanaz@sidgs.com</CreatedBy>
+    <Description></Description>
+    <DisplayName>Oauth-OGV</DisplayName>
+    <LastModifiedAt>1764679358382</LastModifiedAt>
+    <LastModifiedBy>pavanaz@sidgs.com</LastModifiedBy>
+    <ManifestVersion>SHA-512:bed5c5e50155ae625108a8bcc49f39b3ff231759de2a2c7fb45111a68012b96ea9d4b0a8402765924f6288f8035e8a5ed4e41b85fa9435487846dcfb8b217935:ap-northeast-1</ManifestVersion>
+    <Policies>
+        <Policy>AC-access_only_header_value_1</Policy>
+        <Policy>AM-T2-Response</Policy>
+        <Policy>Assign-Message-Override-Payload</Policy>
+        <Policy>GenerateAccessToken</Policy>
+        <Policy>OAuth-v20-1</Policy>
+        <Policy>RateLimit-5PerMinute</Policy>
+        <Policy>SA-1PerSec</Policy>
+        <Policy>Verify-API-Key-1</Policy>
+    </Policies>
+    <ProxyEndpoints>
+        <ProxyEndpoint>default</ProxyEndpoint>
+    </ProxyEndpoints>
+    <Resources/>
+    <Spec></Spec>
+    <TargetServers/>
+    <TargetEndpoints>
+        <TargetEndpoint>T2</TargetEndpoint>
+        <TargetEndpoint>default</TargetEndpoint>
+    </TargetEndpoints>
+</APIProxy>

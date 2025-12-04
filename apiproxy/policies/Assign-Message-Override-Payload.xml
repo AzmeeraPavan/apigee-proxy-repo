@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="Assign-Message-Override-Payload">
+    <DisplayName>Assign Message Override Payload</DisplayName>
+    <!-- Remove original request body -->
+    <Remove>
+        <Payload/>
+    </Remove>
+    <!-- Add new payload -->
+    <Set>
+        <Payload><![CDATA[
+        {
+            "policy": "verify api policy from the responce"
+        }
+        ]]></Payload>
+        <!-- IMPORTANT: Must set Content-Type -->
+        <Headers>
+            <Header name="Content-Type">application/json</Header>
+        </Headers>
+    </Set>
+    <AssignTo createNew="false" transport="http" type="response"/>
+</AssignMessage>

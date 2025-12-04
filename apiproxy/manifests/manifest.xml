@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Manifest name="manifest">
+    <Policies>
+        <VersionInfo resourceName="AC-access_only_header_value_1" version="SHA-512:25d957038aadadc32aadba9431e33057010595474a12f6eb5ddce9113682d8e92fa8ea31aca92d707df6c4d529161b153df8c2d6a272204aa01dbb2b00016b65"/>
+        <VersionInfo resourceName="AM-T2-Response" version="SHA-512:6a50277111dd908b9eaec32ae714432eac522d7d0f6a119c2f73a1cb2c7a8d6982513ebfe0c2608694cca21b8d93de87d45121c66813407824934f84016a45d8"/>
+        <VersionInfo resourceName="Assign-Message-Override-Payload" version="SHA-512:b194f341d234f96d9fb714ebb66adede22e02c9cd0ca96ec04e0bfc9199d6d89b59af334362dfa066e7b931ae4842bdc43b249aaa36e7c6d72531f2ef2798ebb"/>
+        <VersionInfo resourceName="GenerateAccessToken" version="SHA-512:875fbfb591d47df271cf268b38ff621b934fc88fa58aac38f7cfa256c04362065de6902fa28f7b86a588494d718ce4e7cd3a8eddb468eeb9c2c5bf22bdf758ec"/>
+        <VersionInfo resourceName="OAuth-v20-1" version="SHA-512:908ce7368affe0218912bf993618bc2889979c19d547c54faa2cd7bca72c5f796272c96e9a19815bf39221d21e19bc859422cd011757edcc7dd02c20f7709a76"/>
+        <VersionInfo resourceName="RateLimit-5PerMinute" version="SHA-512:96a1b5900037074b1f78f298acce8e856d709cc9c93ffc239df2edf6f0f35d0ffc2b2e3a6a54d17bd2e102700b5d643433fe9eaea74d7d7bc7b15a1d9951d430"/>
+        <VersionInfo resourceName="SA-1PerSec" version="SHA-512:5d8e1367d79ec5953cfdcee39ec2cdf7ac63f10827ed852ec99137feccff075780e293281e2325cbba272ab290d51ed26da43dd0979fdfb94622151dce3ae0f6"/>
+        <VersionInfo resourceName="Verify-API-Key-1" version="SHA-512:bacd17c92eb45cf6229e83c68d13cb7f284c27a57ae84059f1c410e3830949a46a6bf267a31229b0d38e2ba550e5bb4352444df5332101af8ec705e4faf6287d"/>
+    </Policies>
+    <ProxyEndpoints>
+        <VersionInfo resourceName="default" version="SHA-512:104f4a2429b617e5b60dda3a1c624b1f33b28d19d76d8f4e8c248bdcbbf1e940be679130d9ee4b7b830a83a3be8cfea579fd1ca931f3198fc6de99dc08489028"/>
+    </ProxyEndpoints>
+    <Resources/>
+    <SharedFlows/>
+    <TargetEndpoints>
+        <VersionInfo resourceName="T2" version="SHA-512:8ca7f901e423beda0f24f914e79a613077eb35f35b6432b7f7493c73fb184a36e4b734a60cd44429d392c22789d033f0fcdb48065efbeefbc1bd3e57e66cf9ff"/>
+        <VersionInfo resourceName="default" version="SHA-512:e33a568b17b1b2842f861ff799b6a3f065e72ceb2bde5b1a46a2eb2d17067af3fd75e34cfef49fd88cfc0c1fe8e03c35e910a20f91bf713fb991b201a994b5b4"/>
+    </TargetEndpoints>
+</Manifest>

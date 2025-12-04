@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-T2-Response">
+    <AssignTo createNew="false" transport="http">
+        <Response/>
+    </AssignTo>
+    <Set>
+        <Payload>{"message": "You reached TargetEndpoint T2"}</Payload>
+        <Headers>
+            <Header name="X-Routed-To">T2</Header>
+        </Headers>
+    </Set>
+</AssignMessage>

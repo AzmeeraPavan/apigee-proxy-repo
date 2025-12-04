@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<SpikeArrest async="false" continueOnError="false" enabled="true" name="SA-1PerSec">
+    <DisplayName>SA-1PerSec</DisplayName>
+    <Properties/>
+    <Rate>1ps</Rate>
+    <UseEffectiveCount>true</UseEffectiveCount>
+</SpikeArrest>

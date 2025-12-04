@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ProxyEndpoint name="default">
+    <PreFlow name="PreFlow">
+        <Request>
+            <Step>
+                <Name>Verify-API-Key-1</Name>
+            </Step>
+            <Step>
+                <Name>RateLimit-5PerMinute</Name>
+            </Step>
+            <Step>
+                <Name>SA-1PerSec</Name>
+            </Step>
+        </Request>
+        <Response/>
+    </PreFlow>
+    <Flows>
+        <Flow name="oauth">
+            <Description/>
+            <Request>
+                <Step>
+                    <Name>GenerateAccessToken</Name>
+                </Step>
+            </Request>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/oauth") and (request.verb = "POST")</Condition>
+        </Flow>
+        <Flow name="verify">
+            <Description/>
+            <Request>
+                <Step>
+                    <Name>OAuth-v20-1</Name>
+                </Step>
+                <Step>
+                    <Name>AC-access_only_header_value_1</Name>
+                </Step>
+            </Request>
+            <Response>
+                <Step>
+                    <Name>Assign-Message-Override-Payload</Name>
+                </Step>
+            </Response>
+            <Condition>(proxy.pathsuffix MatchesPath "/verify") and (request.verb = "POST")</Condition>
+        </Flow>
+        <Flow name="users">
+            <Description/>
+            <Request/>
+            <Response>
+                <Step>
+                    <Name>AM-T2-Response</Name>
+                </Step>
+            </Response>
+            <Condition>(proxy.pathsuffix MatchesPath "/users") and (request.verb = "POST")</Condition>
+        </Flow>
+    </Flows>
+    <PostFlow name="PostFlow">
+        <Request/>
+        <Response/>
+    </PostFlow>
+    <RouteRule name="UserServiceRule">
+        <Condition>(proxy.pathsuffix MatchesPath "/users/**")</Condition>
+        <TargetEndpoint>T2</TargetEndpoint>
+    </RouteRule>
+    <!-- Default route -->
+    <RouteRule name="default">
+        <TargetEndpoint>default</TargetEndpoint>
+    </RouteRule>
+    <HTTPProxyConnection>
+        <BasePath>/oauth-ogv</BasePath>
+        <VirtualHost>secure</VirtualHost>
+    </HTTPProxyConnection>
+</ProxyEndpoint>
