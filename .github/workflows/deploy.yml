@@ -35,4 +35,4 @@ jobs:
           -o "$APIGEE_ORG" \
           -e "$APIGEE_ENV" \
           -n "$PROXY_NAME" \
-          -d ./Oauth-OGV/apiproxy
+          -d ./apiproxy
