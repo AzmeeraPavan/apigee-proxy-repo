@@ -13,15 +13,20 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
+    - name: Install jq
+      run: |
+        sudo apt-get update
+        sudo apt-get install jq -y
+
     - name: Zip the Apigee Proxy
       run: |
         cd apiproxy
         zip -r ../proxy.zip .
+        cd ..
 
     - name: Deploy Proxy to Apigee Edge
       run: |
         PROXY_NAME=Oauth-OGV
-        VERSION=$(date +%s)
 
         echo "Uploading proxy revision..."
         curl -u "${{ secrets.APIGEE_USERNAME }}:${{ secrets.APIGEE_PASSWORD }}" \
@@ -30,11 +35,12 @@ jobs:
           -F "file=@proxy.zip" \
           "https://api.enterprise.apigee.com/v1/organizations/${{ secrets.APIGEE_ORG }}/apis?action=import&name=$PROXY_NAME"
 
-        echo "Deploying to environment..."
+        echo "Getting latest revision..."
         REV=$(curl -u "${{ secrets.APIGEE_USERNAME }}:${{ secrets.APIGEE_PASSWORD }}" \
-            "https://api.enterprise.apigee.com/v1/organizations/${{ secrets.APIGEE_ORG }}/apis/$PROXY_NAME" \
-            | jq '.revision | last')
+          "https://api.enterprise.apigee.com/v1/organizations/${{ secrets.APIGEE_ORG }}/apis/$PROXY_NAME" \
+          | jq '.revision | last')
 
+        echo "Deploying revision $REV ..."
         curl -u "${{ secrets.APIGEE_USERNAME }}:${{ secrets.APIGEE_PASSWORD }}" \
           -X POST \
           "https://api.enterprise.apigee.com/v1/organizations/${{ secrets.APIGEE_ORG }}/environments/${{ secrets.APIGEE_ENV }}/apis/$PROXY_NAME/revisions/$REV/deployments?override=true"
